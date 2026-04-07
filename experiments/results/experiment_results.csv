@@ -1,0 +1,301 @@
+question_id,repo,question,question_type,difficulty,cross_file_required,engine,model,answer,cited_files,correct_files_cited,total_ground_truth_files,file_citation_precision,file_citation_recall,latency_ms,input_tokens,output_tokens,estimated_cost_usd,keyword_match_score,answer_length_chars,error
+Q001,fastapi/fastapi,Where is the main FastAPI application class defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the main FastAPI application class defined?' can be found in `fastapi/applications.py`. Key implementation details involve `class FastAPI`, `Starlette`. This is a easy navigation question answerable from a single file.","[""fastapi/applications.py""]",1,1,1.0,1.0,516.6,3302,659,0.007423,0.642,288,
+Q001,fastapi/fastapi,Where is the main FastAPI application class defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the main FastAPI application class defined?' can be found in `fastapi/applications.py`. Key implementation details involve `class FastAPI`, `Starlette`. This is a easy navigation question answerable from a single file.","[""fastapi/applications.py""]",1,1,1.0,1.0,5178.2,80434,439,0.102737,0.61,294,
+Q002,fastapi/fastapi,How does FastAPI handle request validation using Pydantic?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does FastAPI handle request validation using Pydantic?' can be found in `fastapi/routing.py`. Key implementation details involve `pydantic`, `validate`, `request_body`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/routing.py""]",1,2,1.0,0.5,360.9,5269,588,0.009526,0.815,307,
+Q002,fastapi/fastapi,How does FastAPI handle request validation using Pydantic?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does FastAPI handle request validation using Pydantic?' can be found in `fastapi/routing.py`, `fastapi/dependencies/utils.py`. Key implementation details involve `pydantic`, `validate`, `request_body`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/routing.py"", ""fastapi/dependencies/utils.py""]",2,2,1.0,1.0,7621.4,76885,809,0.100151,0.843,346,
+Q003,fastapi/fastapi,Explain the overall architecture of FastAPI — how does a request flow from entry to response?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Explain the overall architecture of FastAPI — how does a request flow from entry to response?' can be found in `fastapi/applications.py`. Key implementation details involve `router`, `middleware`, `response`. This is a hard architecture question requiring cross-file understanding.","[""fastapi/applications.py""]",1,3,1.0,0.333,339.1,4931,454,0.008434,0.737,342,
+Q003,fastapi/fastapi,Explain the overall architecture of FastAPI — how does a request flow from entry to response?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Explain the overall architecture of FastAPI — how does a request flow from entry to response?' can be found in `fastapi/applications.py`, `fastapi/routing.py`, `related_module.py`. Key implementation details involve `router`, `middleware`, `response`. This is a hard architecture question requiring cross-file understanding.","[""fastapi/applications.py"", ""fastapi/routing.py"", ""related_module.py""]",2,3,0.667,0.667,6133.3,73274,449,0.093838,0.813,391,
+Q004,fastapi/fastapi,How does FastAPI generate OpenAPI documentation automatically?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does FastAPI generate OpenAPI documentation automatically?' can be found in `fastapi/openapi/utils.py`, `related_module.py`. Key implementation details involve `openapi`, `schema`, `docs`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/openapi/utils.py"", ""related_module.py""]",1,2,0.5,0.5,578.6,5081,554,0.009121,0.624,327,
+Q004,fastapi/fastapi,How does FastAPI generate OpenAPI documentation automatically?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does FastAPI generate OpenAPI documentation automatically?' can be found in `fastapi/openapi/utils.py`, `fastapi/applications.py`. Key implementation details involve `openapi`, `schema`, `docs`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/openapi/utils.py"", ""fastapi/applications.py""]",2,2,1.0,1.0,5956.2,79196,720,0.102595,0.615,339,
+Q005,fastapi/fastapi,Where are HTTP exceptions and error handlers defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where are HTTP exceptions and error handlers defined?' can be found in `fastapi/exception_handlers.py`, `fastapi/exceptions.py`. Key implementation details involve `HTTPException`, `exception_handler`. This is a easy navigation question answerable from a single file.","[""fastapi/exception_handlers.py"", ""fastapi/exceptions.py""]",2,2,1.0,1.0,364.3,4385,320,0.007081,0.714,328,
+Q005,fastapi/fastapi,Where are HTTP exceptions and error handlers defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where are HTTP exceptions and error handlers defined?' can be found in `fastapi/exception_handlers.py`, `fastapi/exceptions.py`. Key implementation details involve `HTTPException`, `exception_handler`. This is a easy navigation question answerable from a single file.","[""fastapi/exception_handlers.py"", ""fastapi/exceptions.py""]",2,2,1.0,1.0,6609.9,81466,516,0.104413,0.814,334,
+Q006,fastapi/fastapi,How does dependency injection work in FastAPI — trace through a Depends() call,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does dependency injection work in FastAPI — trace through a Depends() call' can be found in `fastapi/dependencies/utils.py`, `fastapi/routing.py`, `related_module.py`. Key implementation details involve `Depends`, `solve_dependencies`, `dependency_cache`. This is a hard explanation question requiring cross-file understanding.","[""fastapi/dependencies/utils.py"", ""fastapi/routing.py"", ""related_module.py""]",2,3,0.5,0.667,539.7,3492,591,0.00732,0.819,392,
+Q006,fastapi/fastapi,How does dependency injection work in FastAPI — trace through a Depends() call,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does dependency injection work in FastAPI — trace through a Depends() call' can be found in `fastapi/dependencies/utils.py`, `fastapi/routing.py`, `fastapi/params.py`. Key implementation details involve `Depends`, `solve_dependencies`, `dependency_cache`. This is a hard explanation question requiring cross-file understanding.","[""fastapi/dependencies/utils.py"", ""fastapi/routing.py"", ""fastapi/params.py""]",3,3,1.0,1.0,5426.7,76442,574,0.098422,0.673,398,
+Q007,fastapi/fastapi,What happens when you define a path operation with response_model?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'What happens when you define a path operation with response_model?' can be found in `fastapi/routing.py`. Key implementation details involve `response_model`, `serialize_response`. This is a medium explanation question answerable from a single file.","[""fastapi/routing.py""]",1,1,1.0,1.0,291.9,4492,485,0.00804,0.874,310,
+Q007,fastapi/fastapi,What happens when you define a path operation with response_model?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'What happens when you define a path operation with response_model?' can be found in `fastapi/routing.py`, `related_module.py`. Key implementation details involve `response_model`, `serialize_response`. This is a medium explanation question answerable from a single file.","[""fastapi/routing.py"", ""related_module.py""]",1,1,0.5,1.0,7074.1,80182,567,0.103063,0.883,337,
+Q008,fastapi/fastapi,How does FastAPI handle background tasks?,explanation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does FastAPI handle background tasks?' can be found in `fastapi/background.py`, `related_module.py`. Key implementation details involve `BackgroundTasks`, `add_task`. This is a easy explanation question answerable from a single file.","[""fastapi/background.py"", ""related_module.py""]",1,1,0.333,1.0,517.9,3785,415,0.006806,0.768,298,
+Q008,fastapi/fastapi,How does FastAPI handle background tasks?,explanation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does FastAPI handle background tasks?' can be found in `fastapi/background.py`. Key implementation details involve `BackgroundTasks`, `add_task`. This is a easy explanation question answerable from a single file.","[""fastapi/background.py""]",1,1,1.0,1.0,5832.0,78709,758,0.102176,0.763,283,
+Q009,fastapi/fastapi,Where is middleware processing implemented and how does it chain?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is middleware processing implemented and how does it chain?' can be found in `fastapi/middleware`. Key implementation details involve `add_middleware`, `Middleware`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/middleware""]",1,2,1.0,0.5,313.6,3392,336,0.00592,0.838,306,
+Q009,fastapi/fastapi,Where is middleware processing implemented and how does it chain?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is middleware processing implemented and how does it chain?' can be found in `fastapi/middleware`, `fastapi/applications.py`, `related_module.py`. Key implementation details involve `add_middleware`, `Middleware`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/middleware"", ""fastapi/applications.py"", ""related_module.py""]",2,2,0.667,1.0,6482.4,72951,740,0.094889,0.769,360,
+Q010,fastapi/fastapi,How does WebSocket support work in FastAPI?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does WebSocket support work in FastAPI?' can be found in `fastapi/routing.py`, `related_module.py`. Key implementation details involve `WebSocket`, `websocket_route`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/routing.py"", ""related_module.py""]",1,2,0.333,0.5,639.3,3247,628,0.007199,0.865,305,
+Q010,fastapi/fastapi,How does WebSocket support work in FastAPI?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does WebSocket support work in FastAPI?' can be found in `fastapi/routing.py`, `related_module.py`. Key implementation details involve `WebSocket`, `websocket_route`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/routing.py"", ""related_module.py""]",1,2,0.5,0.5,7823.6,80743,698,0.104419,0.651,311,
+Q011,langchain-ai/langchain,Where is the base LLM class defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the base LLM class defined?' can be found in `libs/langchain/langchain/llms/base.py`, `related_module.py`. Key implementation details involve `class BaseLLM`, `BaseLanguageModel`. This is a easy navigation question answerable from a single file.","[""libs/langchain/langchain/llms/base.py"", ""related_module.py""]",1,1,0.333,1.0,281.2,4278,536,0.008027,0.874,315,
+Q011,langchain-ai/langchain,Where is the base LLM class defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the base LLM class defined?' can be found in `libs/langchain/langchain/llms/base.py`. Key implementation details involve `class BaseLLM`, `BaseLanguageModel`. This is a easy navigation question answerable from a single file.","[""libs/langchain/langchain/llms/base.py""]",1,1,1.0,1.0,41069.7,373295,869,0.941928,0.72,300,
+Q012,langchain-ai/langchain,How does a LangChain chain execute — trace through the invoke() call,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does a LangChain chain execute — trace through the invoke() call' can be found in `libs/core/langchain_core/runnables/base.py`, `related_module.py`. Key implementation details involve `invoke`, `Runnable`, `RunnableSequence`. This is a hard explanation question requiring cross-file understanding.","[""libs/core/langchain_core/runnables/base.py"", ""related_module.py""]",1,1,0.5,1.0,339.8,5372,280,0.008115,0.606,362,
+Q012,langchain-ai/langchain,How does a LangChain chain execute — trace through the invoke() call,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does a LangChain chain execute — trace through the invoke() call' can be found in `libs/core/langchain_core/runnables/base.py`. Key implementation details involve `invoke`, `Runnable`, `RunnableSequence`. This is a hard explanation question requiring cross-file understanding.","[""libs/core/langchain_core/runnables/base.py""]",1,1,1.0,1.0,42250.6,404978,664,1.019085,0.881,347,
+Q013,langchain-ai/langchain,Explain the overall architecture of the LangChain Expression Language (LCEL),architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Explain the overall architecture of the LangChain Expression Language (LCEL)' can be found in `libs/core/langchain_core/runnables`. Key implementation details involve `Runnable`, `pipe`, `chain`. This is a hard architecture question requiring cross-file understanding.","[""libs/core/langchain_core/runnables""]",1,1,1.0,1.0,630.4,3550,654,0.007707,0.743,329,
+Q013,langchain-ai/langchain,Explain the overall architecture of the LangChain Expression Language (LCEL),architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Explain the overall architecture of the LangChain Expression Language (LCEL)' can be found in `libs/core/langchain_core/runnables`. Key implementation details involve `Runnable`, `pipe`, `chain`. This is a hard architecture question requiring cross-file understanding.","[""libs/core/langchain_core/runnables""]",1,1,1.0,1.0,34259.4,363866,836,0.918025,0.722,335,
+Q014,langchain-ai/langchain,How does RAG work in LangChain — what classes are involved?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does RAG work in LangChain — what classes are involved?' can be found in `libs/langchain/langchain/chains/retrieval_qa`, `related_module.py`. Key implementation details involve `RetrievalQA`, `retriever`, `vector_store`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/chains/retrieval_qa"", ""related_module.py""]",1,1,0.333,1.0,602.8,4933,388,0.008106,0.807,359,
+Q014,langchain-ai/langchain,How does RAG work in LangChain — what classes are involved?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does RAG work in LangChain — what classes are involved?' can be found in `libs/langchain/langchain/chains/retrieval_qa`, `related_module.py`. Key implementation details involve `RetrievalQA`, `retriever`, `vector_store`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/chains/retrieval_qa"", ""related_module.py""]",1,1,0.5,1.0,37893.1,378784,732,0.95428,0.639,365,
+Q015,langchain-ai/langchain,Where is the ChatPromptTemplate class defined and how does it format messages?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the ChatPromptTemplate class defined and how does it format messages?' can be found in `libs/core/langchain_core/prompts/chat.py`. Key implementation details involve `ChatPromptTemplate`, `format_messages`. This is a easy navigation question answerable from a single file.","[""libs/core/langchain_core/prompts/chat.py""]",1,1,1.0,1.0,363.1,4584,290,0.00718,0.777,342,
+Q015,langchain-ai/langchain,Where is the ChatPromptTemplate class defined and how does it format messages?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the ChatPromptTemplate class defined and how does it format messages?' can be found in `libs/core/langchain_core/prompts/chat.py`. Key implementation details involve `ChatPromptTemplate`, `format_messages`. This is a easy navigation question answerable from a single file.","[""libs/core/langchain_core/prompts/chat.py""]",1,1,1.0,1.0,23665.0,395648,410,0.99322,0.875,348,
+Q016,langchain-ai/langchain,How does streaming work in LangChain chains?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does streaming work in LangChain chains?' can be found in `libs/core/langchain_core/runnables/base.py`. Key implementation details involve `stream`, `astream`, `StreamEvent`. This is a medium explanation question requiring cross-file understanding.","[""libs/core/langchain_core/runnables/base.py""]",1,1,1.0,1.0,306.2,4174,422,0.007327,0.762,313,
+Q016,langchain-ai/langchain,How does streaming work in LangChain chains?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does streaming work in LangChain chains?' can be found in `libs/core/langchain_core/runnables/base.py`, `related_module.py`. Key implementation details involve `stream`, `astream`, `StreamEvent`. This is a medium explanation question requiring cross-file understanding.","[""libs/core/langchain_core/runnables/base.py"", ""related_module.py""]",1,1,0.5,1.0,38102.8,405178,834,1.021285,0.858,340,
+Q017,langchain-ai/langchain,How does memory work in LangChain agents?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does memory work in LangChain agents?' can be found in `libs/langchain/langchain/memory`, `related_module.py`. Key implementation details involve `ConversationBufferMemory`, `chat_memory`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/memory"", ""related_module.py""]",1,1,0.5,1.0,350.5,3597,617,0.007581,0.723,327,
+Q017,langchain-ai/langchain,How does memory work in LangChain agents?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does memory work in LangChain agents?' can be found in `libs/langchain/langchain/memory`, `related_module.py`. Key implementation details involve `ConversationBufferMemory`, `chat_memory`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/memory"", ""related_module.py""]",1,1,0.5,1.0,40934.9,359957,450,0.904393,0.856,333,
+Q018,langchain-ai/langchain,What is the data flow from user message to LLM response in a ConversationalRetrievalChain?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'What is the data flow from user message to LLM response in a ConversationalRetrievalChain?' can be found in `libs/langchain/langchain/chains/conversational_retrieval`. Key implementation details involve `ConversationalRetrievalChain`, `retriever`, `combine_docs`. This is a hard architecture question requiring cross-file understanding.","[""libs/langchain/langchain/chains/conversational_retrieval""]",1,1,1.0,1.0,320.4,3984,377,0.006865,0.577,397,
+Q018,langchain-ai/langchain,What is the data flow from user message to LLM response in a ConversationalRetrievalChain?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'What is the data flow from user message to LLM response in a ConversationalRetrievalChain?' can be found in `libs/langchain/langchain/chains/conversational_retrieval`. Key implementation details involve `ConversationalRetrievalChain`, `retriever`, `combine_docs`. This is a hard architecture question requiring cross-file understanding.","[""libs/langchain/langchain/chains/conversational_retrieval""]",1,1,1.0,1.0,29135.5,370639,427,0.930867,0.664,403,
+Q019,langchain-ai/langchain,Find where tool calling is implemented for LLM agents,navigation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Find where tool calling is implemented for LLM agents' can be found in `libs/langchain/langchain/agents/tool_calling_agent`. Key implementation details involve `tool_calling`, `bind_tools`. This is a medium navigation question answerable from a single file.","[""libs/langchain/langchain/agents/tool_calling_agent""]",1,1,1.0,1.0,649.7,3260,327,0.00571,0.65,318,
+Q019,langchain-ai/langchain,Find where tool calling is implemented for LLM agents,navigation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Find where tool calling is implemented for LLM agents' can be found in `libs/langchain/langchain/agents/tool_calling_agent`. Key implementation details involve `tool_calling`, `bind_tools`. This is a medium navigation question answerable from a single file.","[""libs/langchain/langchain/agents/tool_calling_agent""]",1,1,1.0,1.0,33310.5,368670,760,0.929275,0.721,324,
+Q020,langchain-ai/langchain,How does document loading and text splitting work together?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does document loading and text splitting work together?' can be found in `libs/langchain/langchain/document_loaders`, `related_module.py`. Key implementation details involve `DocumentLoader`, `TextSplitter`, `split_documents`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/document_loaders"", ""related_module.py""]",1,2,0.333,0.5,644.6,4286,512,0.007917,0.887,365,
+Q020,langchain-ai/langchain,How does document loading and text splitting work together?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does document loading and text splitting work together?' can be found in `libs/langchain/langchain/document_loaders`, `related_module.py`. Key implementation details involve `DocumentLoader`, `TextSplitter`, `split_documents`. This is a medium explanation question requiring cross-file understanding.","[""libs/langchain/langchain/document_loaders"", ""related_module.py""]",1,2,0.5,0.5,43587.7,387344,848,0.97684,0.67,371,
+Q021,tiangolo/sqlmodel,Where is the main SQLModel class defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the main SQLModel class defined?' can be found in `sqlmodel/main.py`. Key implementation details involve `class SQLModel`, `SQLModelMetaclass`. This is a easy navigation question answerable from a single file.","[""sqlmodel/main.py""]",1,1,1.0,1.0,301.6,5420,311,0.00833,0.615,279,
+Q021,tiangolo/sqlmodel,Where is the main SQLModel class defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the main SQLModel class defined?' can be found in `sqlmodel/main.py`. Key implementation details involve `class SQLModel`, `SQLModelMetaclass`. This is a easy navigation question answerable from a single file.","[""sqlmodel/main.py""]",1,1,1.0,1.0,2524.3,31024,893,0.043245,0.872,285,
+Q022,tiangolo/sqlmodel,How does SQLModel combine Pydantic models with SQLAlchemy tables?,explanation,hard,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does SQLModel combine Pydantic models with SQLAlchemy tables?' can be found in `sqlmodel/main.py`, `related_module.py`. Key implementation details involve `SQLModelMetaclass`, `pydantic`, `sqlalchemy`. This is a hard explanation question answerable from a single file.","[""sqlmodel/main.py"", ""related_module.py""]",1,1,0.5,1.0,305.4,3478,625,0.007472,0.636,333,
+Q022,tiangolo/sqlmodel,How does SQLModel combine Pydantic models with SQLAlchemy tables?,explanation,hard,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does SQLModel combine Pydantic models with SQLAlchemy tables?' can be found in `sqlmodel/main.py`, `related_module.py`. Key implementation details involve `SQLModelMetaclass`, `pydantic`, `sqlalchemy`. This is a hard explanation question answerable from a single file.","[""sqlmodel/main.py"", ""related_module.py""]",1,1,0.5,1.0,3159.5,28224,390,0.03723,0.81,339,
+Q023,tiangolo/sqlmodel,Explain the overall design of SQLModel — what problems does it solve and how?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Explain the overall design of SQLModel — what problems does it solve and how?' can be found in `sqlmodel/main.py`, `related_module.py`. Key implementation details involve `SQLModel`, `session`, `pydantic`. This is a hard architecture question requiring cross-file understanding.","[""sqlmodel/main.py"", ""related_module.py""]",1,2,0.333,0.5,489.1,4495,413,0.007684,0.544,339,
+Q023,tiangolo/sqlmodel,Explain the overall design of SQLModel — what problems does it solve and how?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Explain the overall design of SQLModel — what problems does it solve and how?' can be found in `sqlmodel/main.py`, `sqlmodel/session.py`. Key implementation details involve `SQLModel`, `session`, `pydantic`. This is a hard architecture question requiring cross-file understanding.","[""sqlmodel/main.py"", ""sqlmodel/session.py""]",2,2,1.0,1.0,2200.0,27744,657,0.037965,0.653,347,
+Q024,tiangolo/sqlmodel,How does the Session class work in SQLModel?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does the Session class work in SQLModel?' can be found in `sqlmodel/session.py`. Key implementation details involve `Session`, `exec`, `select`. This is a medium explanation question answerable from a single file.","[""sqlmodel/session.py""]",1,1,1.0,1.0,509.8,5506,331,0.008537,0.752,278,
+Q024,tiangolo/sqlmodel,How does the Session class work in SQLModel?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does the Session class work in SQLModel?' can be found in `sqlmodel/session.py`, `related_module.py`. Key implementation details involve `Session`, `exec`, `select`. This is a medium explanation question answerable from a single file.","[""sqlmodel/session.py"", ""related_module.py""]",1,1,0.5,1.0,1995.5,28651,420,0.037914,0.691,305,
+Q025,tiangolo/sqlmodel,Where is relationship handling defined for SQLModel models?,navigation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is relationship handling defined for SQLModel models?' can be found in `sqlmodel/main.py`, `related_module.py`. Key implementation details involve `Relationship`, `RelationshipInfo`. This is a medium navigation question answerable from a single file.","[""sqlmodel/main.py"", ""related_module.py""]",1,1,0.333,1.0,442.1,5425,640,0.009981,0.759,317,
+Q025,tiangolo/sqlmodel,Where is relationship handling defined for SQLModel models?,navigation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is relationship handling defined for SQLModel models?' can be found in `sqlmodel/main.py`. Key implementation details involve `Relationship`, `RelationshipInfo`. This is a medium navigation question answerable from a single file.","[""sqlmodel/main.py""]",1,1,1.0,1.0,2817.8,29507,456,0.039164,0.685,302,
+Q026,encode/httpx,Where is the main httpx Client class defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the main httpx Client class defined?' can be found in `httpx/_client.py`, `related_module.py`. Key implementation details involve `class Client`, `class AsyncClient`. This is a easy navigation question answerable from a single file.","[""httpx/_client.py"", ""related_module.py""]",1,1,0.333,1.0,609.2,5466,359,0.008627,0.663,302,
+Q026,encode/httpx,Where is the main httpx Client class defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the main httpx Client class defined?' can be found in `httpx/_client.py`, `related_module.py`. Key implementation details involve `class Client`, `class AsyncClient`. This is a easy navigation question answerable from a single file.","[""httpx/_client.py"", ""related_module.py""]",1,1,0.5,1.0,4927.2,63877,620,0.082946,0.89,308,
+Q027,encode/httpx,How does httpx handle connection pooling?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does httpx handle connection pooling?' can be found in `httpx/_transports/default.py`, `related_module.py`. Key implementation details involve `connection_pool`, `limits`, `HTTPTransport`. This is a medium explanation question requiring cross-file understanding.","[""httpx/_transports/default.py"", ""related_module.py""]",1,2,0.5,0.5,593.1,3578,604,0.007493,0.613,327,
+Q027,encode/httpx,How does httpx handle connection pooling?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does httpx handle connection pooling?' can be found in `httpx/_transports/default.py`, `related_module.py`. Key implementation details involve `connection_pool`, `limits`, `HTTPTransport`. This is a medium explanation question requiring cross-file understanding.","[""httpx/_transports/default.py"", ""related_module.py""]",1,2,0.5,0.5,4896.7,58956,618,0.076785,0.777,333,
+Q028,encode/httpx,Explain the complete request-response lifecycle in httpx,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Explain the complete request-response lifecycle in httpx' can be found in `httpx/_client.py`, `related_module.py`. Key implementation details involve `send`, `transport`, `request`. This is a hard architecture question requiring cross-file understanding.","[""httpx/_client.py"", ""related_module.py""]",1,3,0.333,0.333,438.2,3239,337,0.005734,0.721,315,
+Q028,encode/httpx,Explain the complete request-response lifecycle in httpx,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Explain the complete request-response lifecycle in httpx' can be found in `httpx/_client.py`, `httpx/_transports`, `httpx/_models.py`. Key implementation details involve `send`, `transport`, `request`. This is a hard architecture question requiring cross-file understanding.","[""httpx/_client.py"", ""httpx/_transports"", ""httpx/_models.py""]",3,3,1.0,1.0,5588.8,65177,501,0.083976,0.733,341,
+Q029,encode/httpx,How does retry logic work in httpx?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does retry logic work in httpx?' can be found in `httpx/_transports/default.py`. Key implementation details involve `retry`, `transport`, `Retries`. This is a medium explanation question answerable from a single file.","[""httpx/_transports/default.py""]",1,1,1.0,1.0,612.6,3363,463,0.006519,0.8,282,
+Q029,encode/httpx,How does retry logic work in httpx?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does retry logic work in httpx?' can be found in `httpx/_transports/default.py`. Key implementation details involve `retry`, `transport`, `Retries`. This is a medium explanation question answerable from a single file.","[""httpx/_transports/default.py""]",1,1,1.0,1.0,4962.4,62749,766,0.082266,0.896,288,
+Q030,encode/httpx,Where is authentication handling implemented?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is authentication handling implemented?' can be found in `httpx/_auth.py`. Key implementation details involve `Auth`, `BasicAuth`, `BearerAuth`. This is a easy navigation question answerable from a single file.","[""httpx/_auth.py""]",1,1,1.0,1.0,367.6,3865,370,0.006681,0.654,277,
+Q030,encode/httpx,Where is authentication handling implemented?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is authentication handling implemented?' can be found in `httpx/_auth.py`. Key implementation details involve `Auth`, `BasicAuth`, `BearerAuth`. This is a easy navigation question answerable from a single file.","[""httpx/_auth.py""]",1,1,1.0,1.0,6825.5,64716,771,0.08475,0.685,283,
+Q031,encode/httpx,How does streaming response handling differ between sync and async clients?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does streaming response handling differ between sync and async clients?' can be found in `httpx/_client.py`, `httpx/_models.py`, `related_module.py`. Key implementation details involve `stream`, `aiter_bytes`, `iter_bytes`. This is a hard explanation question requiring cross-file understanding.","[""httpx/_client.py"", ""httpx/_models.py"", ""related_module.py""]",2,2,0.667,1.0,571.3,3642,475,0.006927,0.667,360,
+Q031,encode/httpx,How does streaming response handling differ between sync and async clients?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does streaming response handling differ between sync and async clients?' can be found in `httpx/_client.py`, `httpx/_models.py`. Key implementation details involve `stream`, `aiter_bytes`, `iter_bytes`. This is a hard explanation question requiring cross-file understanding.","[""httpx/_client.py"", ""httpx/_models.py""]",2,2,1.0,1.0,6473.3,61869,662,0.080646,0.671,345,
+Q032,encode/httpx,How does httpx handle redirects?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does httpx handle redirects?' can be found in `httpx/_client.py`. Key implementation details involve `follow_redirects`, `redirect`, `history`. This is a medium explanation question answerable from a single file.","[""httpx/_client.py""]",1,1,1.0,1.0,524.2,4832,448,0.00828,0.89,277,
+Q032,encode/httpx,How does httpx handle redirects?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does httpx handle redirects?' can be found in `httpx/_client.py`, `related_module.py`. Key implementation details involve `follow_redirects`, `redirect`, `history`. This is a medium explanation question answerable from a single file.","[""httpx/_client.py"", ""related_module.py""]",1,1,0.5,1.0,4719.1,63470,759,0.083132,0.901,304,
+Q033,encode/httpx,What is the data flow when making an async HTTP request?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'What is the data flow when making an async HTTP request?' can be found in `httpx/_client.py`, `related_module.py`. Key implementation details involve `AsyncClient`, `send`, `aclose`. This is a hard architecture question requiring cross-file understanding.","[""httpx/_client.py"", ""related_module.py""]",1,2,0.5,0.5,322.7,4269,371,0.007191,0.461,316,
+Q033,encode/httpx,What is the data flow when making an async HTTP request?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'What is the data flow when making an async HTTP request?' can be found in `httpx/_client.py`, `httpx/_transports/asgi.py`. Key implementation details involve `AsyncClient`, `send`, `aclose`. This is a hard architecture question requiring cross-file understanding.","[""httpx/_client.py"", ""httpx/_transports/asgi.py""]",2,2,1.0,1.0,5755.2,60855,671,0.079424,0.754,330,
+Q034,encode/httpx,Where is cookie handling implemented?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is cookie handling implemented?' can be found in `httpx/_models.py`, `httpx/_cookies.py`. Key implementation details involve `Cookies`, `set_cookie`, `jar`. This is a easy navigation question answerable from a single file.","[""httpx/_models.py"", ""httpx/_cookies.py""]",2,2,1.0,1.0,493.3,4243,302,0.006814,0.756,289,
+Q034,encode/httpx,Where is cookie handling implemented?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is cookie handling implemented?' can be found in `httpx/_models.py`, `httpx/_cookies.py`. Key implementation details involve `Cookies`, `set_cookie`, `jar`. This is a easy navigation question answerable from a single file.","[""httpx/_models.py"", ""httpx/_cookies.py""]",2,2,1.0,1.0,6440.5,63871,551,0.082594,0.904,295,
+Q035,encode/httpx,How does timeout handling work across different request phases?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does timeout handling work across different request phases?' can be found in `httpx/_config.py`. Key implementation details involve `Timeout`, `connect_timeout`, `read_timeout`. This is a medium explanation question requiring cross-file understanding.","[""httpx/_config.py""]",1,2,1.0,0.5,620.7,5752,440,0.00939,0.816,316,
+Q035,encode/httpx,How does timeout handling work across different request phases?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does timeout handling work across different request phases?' can be found in `httpx/_config.py`, `httpx/_client.py`, `related_module.py`. Key implementation details involve `Timeout`, `connect_timeout`, `read_timeout`. This is a medium explanation question requiring cross-file understanding.","[""httpx/_config.py"", ""httpx/_client.py"", ""related_module.py""]",2,2,0.667,1.0,4788.3,60534,768,0.079507,0.777,363,
+Q036,pydantic/pydantic,Where is the main BaseModel class defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the main BaseModel class defined?' can be found in `pydantic/main.py`. Key implementation details involve `class BaseModel`, `ModelMetaclass`. This is a easy navigation question answerable from a single file.","[""pydantic/main.py""]",1,1,1.0,1.0,351.0,4752,626,0.00907,0.785,278,
+Q036,pydantic/pydantic,Where is the main BaseModel class defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the main BaseModel class defined?' can be found in `pydantic/main.py`. Key implementation details involve `class BaseModel`, `ModelMetaclass`. This is a easy navigation question answerable from a single file.","[""pydantic/main.py""]",1,1,1.0,1.0,12680.2,165821,350,0.418052,0.738,284,
+Q037,pydantic/pydantic,How does Pydantic V2 validate data differently from V1?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does Pydantic V2 validate data differently from V1?' can be found in `pydantic/main.py`, `related_module.py`. Key implementation details involve `model_validate`, `core_schema`, `rust`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""related_module.py""]",1,2,0.333,0.5,494.6,4519,518,0.008239,0.664,322,
+Q037,pydantic/pydantic,How does Pydantic V2 validate data differently from V1?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does Pydantic V2 validate data differently from V1?' can be found in `pydantic/main.py`, `pydantic/_internal`, `related_module.py`. Key implementation details involve `model_validate`, `core_schema`, `rust`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""pydantic/_internal"", ""related_module.py""]",2,2,0.667,1.0,14168.3,174087,523,0.440447,0.765,350,
+Q038,pydantic/pydantic,Explain the complete validation pipeline for a Pydantic model,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Explain the complete validation pipeline for a Pydantic model' can be found in `pydantic/main.py`. Key implementation details involve `__get_validators__`, `model_validator`, `field_validator`. This is a hard architecture question requiring cross-file understanding.","[""pydantic/main.py""]",1,2,1.0,0.5,514.2,4572,327,0.00735,0.652,327,
+Q038,pydantic/pydantic,Explain the complete validation pipeline for a Pydantic model,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Explain the complete validation pipeline for a Pydantic model' can be found in `pydantic/main.py`, `pydantic/_internal/_model_construction.py`, `related_module.py`. Key implementation details involve `__get_validators__`, `model_validator`, `field_validator`. This is a hard architecture question requiring cross-file understanding.","[""pydantic/main.py"", ""pydantic/_internal/_model_construction.py"", ""related_module.py""]",2,2,0.667,1.0,12020.9,157659,375,0.397898,0.815,399,
+Q039,pydantic/pydantic,How does Field() work to add constraints and metadata to model fields?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does Field() work to add constraints and metadata to model fields?' can be found in `pydantic/fields.py`, `related_module.py`. Key implementation details involve `Field`, `FieldInfo`, `metadata`. This is a medium explanation question answerable from a single file.","[""pydantic/fields.py"", ""related_module.py""]",1,1,0.333,1.0,564.3,5065,492,0.008791,0.658,329,
+Q039,pydantic/pydantic,How does Field() work to add constraints and metadata to model fields?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does Field() work to add constraints and metadata to model fields?' can be found in `pydantic/fields.py`. Key implementation details involve `Field`, `FieldInfo`, `metadata`. This is a medium explanation question answerable from a single file.","[""pydantic/fields.py""]",1,1,1.0,1.0,16096.5,164568,599,0.41741,0.886,314,
+Q040,pydantic/pydantic,Where is JSON serialization implemented for Pydantic models?,navigation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is JSON serialization implemented for Pydantic models?' can be found in `pydantic/main.py`. Key implementation details involve `model_dump`, `model_dump_json`, `json`. This is a medium navigation question answerable from a single file.","[""pydantic/main.py""]",1,1,1.0,1.0,598.4,3636,678,0.007935,0.841,302,
+Q040,pydantic/pydantic,Where is JSON serialization implemented for Pydantic models?,navigation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is JSON serialization implemented for Pydantic models?' can be found in `pydantic/main.py`. Key implementation details involve `model_dump`, `model_dump_json`, `json`. This is a medium navigation question answerable from a single file.","[""pydantic/main.py""]",1,1,1.0,1.0,16092.7,163870,605,0.415725,0.746,308,
+Q041,pydantic/pydantic,How does validator inheritance work when subclassing a Pydantic model?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does validator inheritance work when subclassing a Pydantic model?' can be found in `pydantic/main.py`, `related_module.py`. Key implementation details involve `validator`, `inherit`, `__validators__`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""related_module.py""]",1,2,0.5,0.5,576.5,5375,566,0.009549,0.784,338,
+Q041,pydantic/pydantic,How does validator inheritance work when subclassing a Pydantic model?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does validator inheritance work when subclassing a Pydantic model?' can be found in `pydantic/main.py`, `pydantic/_internal/_model_construction.py`, `related_module.py`. Key implementation details involve `validator`, `inherit`, `__validators__`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""pydantic/_internal/_model_construction.py"", ""related_module.py""]",2,2,0.667,1.0,16294.5,164811,806,0.420088,0.744,389,
+Q042,pydantic/pydantic,How does Pydantic handle discriminated unions?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does Pydantic handle discriminated unions?' can be found in `pydantic/discriminated_types.py`, `related_module.py`. Key implementation details involve `discriminated_union`, `discriminator`, `Annotated`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/discriminated_types.py"", ""related_module.py""]",1,2,0.5,0.5,558.2,4335,672,0.008779,0.788,340,
+Q042,pydantic/pydantic,How does Pydantic handle discriminated unions?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does Pydantic handle discriminated unions?' can be found in `pydantic/discriminated_types.py`, `pydantic/_internal`, `related_module.py`. Key implementation details involve `discriminated_union`, `discriminator`, `Annotated`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/discriminated_types.py"", ""pydantic/_internal"", ""related_module.py""]",2,2,0.667,1.0,12452.5,154813,642,0.393452,0.702,368,
+Q043,pydantic/pydantic,What is the data flow when calling model_validate() on a raw dict?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'What is the data flow when calling model_validate() on a raw dict?' can be found in `pydantic/main.py`, `related_module.py`. Key implementation details involve `model_validate`, `__pydantic_validator__`, `core_schema`. This is a hard architecture question requiring cross-file understanding.","[""pydantic/main.py"", ""related_module.py""]",1,2,0.333,0.5,479.9,3766,357,0.006493,0.496,352,
+Q043,pydantic/pydantic,What is the data flow when calling model_validate() on a raw dict?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'What is the data flow when calling model_validate() on a raw dict?' can be found in `pydantic/main.py`, `pydantic/_internal/_validate_call.py`, `related_module.py`. Key implementation details involve `model_validate`, `__pydantic_validator__`, `core_schema`. This is a hard architecture question requiring cross-file understanding.","[""pydantic/main.py"", ""pydantic/_internal/_validate_call.py"", ""related_module.py""]",2,2,0.667,1.0,11928.6,162707,688,0.413648,0.667,398,
+Q044,pydantic/pydantic,Where is the settings management (pydantic-settings) BaseSettings defined?,navigation,easy,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'Where is the settings management (pydantic-settings) BaseSettings defined?' can be found in `pydantic_settings/main.py`, `related_module.py`. Key implementation details involve `class BaseSettings`, `env_settings`. This is a easy navigation question answerable from a single file.","[""pydantic_settings/main.py"", ""related_module.py""]",1,1,0.333,1.0,588.2,4795,674,0.009364,0.606,341,
+Q044,pydantic/pydantic,Where is the settings management (pydantic-settings) BaseSettings defined?,navigation,easy,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'Where is the settings management (pydantic-settings) BaseSettings defined?' can be found in `pydantic_settings/main.py`, `related_module.py`. Key implementation details involve `class BaseSettings`, `env_settings`. This is a easy navigation question answerable from a single file.","[""pydantic_settings/main.py"", ""related_module.py""]",1,1,0.5,1.0,17688.9,166471,838,0.424557,0.696,347,
+Q045,pydantic/pydantic,How does Pydantic's recursive model validation work for nested models?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does Pydantic's recursive model validation work for nested models?' can be found in `pydantic/main.py`, `related_module.py`. Key implementation details involve `nested`, `recursive`, `model_fields`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""related_module.py""]",1,2,0.333,0.5,424.3,4916,555,0.00892,0.84,335,
+Q045,pydantic/pydantic,How does Pydantic's recursive model validation work for nested models?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does Pydantic's recursive model validation work for nested models?' can be found in `pydantic/main.py`, `pydantic/_internal`. Key implementation details involve `nested`, `recursive`, `model_fields`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/main.py"", ""pydantic/_internal""]",2,2,1.0,1.0,17837.1,164424,629,0.41735,0.724,342,
+Q046,fastapi/fastapi,How does FastAPI handle form data and file uploads?,explanation,medium,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does FastAPI handle form data and file uploads?' can be found in `fastapi/params.py`, `related_module.py`. Key implementation details involve `Form`, `File`, `UploadFile`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/params.py"", ""related_module.py""]",1,2,0.5,0.5,527.5,4856,650,0.00932,0.876,310,
+Q046,fastapi/fastapi,How does FastAPI handle form data and file uploads?,explanation,medium,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does FastAPI handle form data and file uploads?' can be found in `fastapi/params.py`, `fastapi/datastructures.py`. Key implementation details involve `Form`, `File`, `UploadFile`. This is a medium explanation question requiring cross-file understanding.","[""fastapi/params.py"", ""fastapi/datastructures.py""]",2,2,1.0,1.0,8761.3,78152,753,0.101455,0.627,324,
+Q047,encode/httpx,How does httpx support HTTP/2?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does httpx support HTTP/2?' can be found in `httpx/_transports/default.py`, `related_module.py`. Key implementation details involve `http2`, `h2`, `HTTP2Transport`. This is a hard explanation question requiring cross-file understanding.","[""httpx/_transports/default.py"", ""related_module.py""]",1,1,0.5,1.0,438.6,5091,373,0.008229,0.698,301,
+Q047,encode/httpx,How does httpx support HTTP/2?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does httpx support HTTP/2?' can be found in `httpx/_transports/default.py`, `related_module.py`. Key implementation details involve `http2`, `h2`, `HTTP2Transport`. This is a hard explanation question requiring cross-file understanding.","[""httpx/_transports/default.py"", ""related_module.py""]",1,1,0.5,1.0,5292.1,60783,738,0.079669,0.681,307,
+Q048,langchain-ai/langchain,How are callbacks and tracing implemented across LangChain operations?,architecture,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How are callbacks and tracing implemented across LangChain operations?' can be found in `libs/core/langchain_core/callbacks`, `related_module.py`. Key implementation details involve `CallbackManager`, `BaseCallbackHandler`, `on_llm_start`. This is a hard architecture question requiring cross-file understanding.","[""libs/core/langchain_core/callbacks"", ""related_module.py""]",1,1,0.5,1.0,310.3,3279,663,0.007414,0.517,373,
+Q048,langchain-ai/langchain,How are callbacks and tracing implemented across LangChain operations?,architecture,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How are callbacks and tracing implemented across LangChain operations?' can be found in `libs/core/langchain_core/callbacks`. Key implementation details involve `CallbackManager`, `BaseCallbackHandler`, `on_llm_start`. This is a hard architecture question requiring cross-file understanding.","[""libs/core/langchain_core/callbacks""]",1,1,1.0,1.0,24903.3,409267,391,1.027078,0.704,358,
+Q049,pydantic/pydantic,How does Pydantic's custom type system work with Annotated types?,explanation,hard,True,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does Pydantic's custom type system work with Annotated types?' can be found in `pydantic/functional_validators.py`, `related_module.py`. Key implementation details involve `Annotated`, `GetCoreSchemaHandler`, `BeforeValidator`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/functional_validators.py"", ""related_module.py""]",1,1,0.333,1.0,287.5,3824,402,0.00679,0.634,364,
+Q049,pydantic/pydantic,How does Pydantic's custom type system work with Annotated types?,explanation,hard,True,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does Pydantic's custom type system work with Annotated types?' can be found in `pydantic/functional_validators.py`. Key implementation details involve `Annotated`, `GetCoreSchemaHandler`, `BeforeValidator`. This is a hard explanation question requiring cross-file understanding.","[""pydantic/functional_validators.py""]",1,1,1.0,1.0,18268.6,163881,612,0.415822,0.794,349,
+Q050,tiangolo/sqlmodel,How does SQLModel handle optional fields differently from required fields in database tables?,explanation,medium,False,rag,gemini-1.5-pro,"[SIMULATED — [RAG: retrieved top-12 chunks]]
+
+The answer to 'How does SQLModel handle optional fields differently from required fields in database tables?' can be found in `sqlmodel/main.py`, `related_module.py`. Key implementation details involve `Optional`, `Field`, `nullable`. This is a medium explanation question answerable from a single file.","[""sqlmodel/main.py"", ""related_module.py""]",1,1,0.5,1.0,636.6,3669,678,0.007976,0.632,349,
+Q050,tiangolo/sqlmodel,How does SQLModel handle optional fields differently from required fields in database tables?,explanation,medium,False,long_context,gemini-1.5-pro,"[SIMULATED — [Long-Context: full repo in context]]
+
+The answer to 'How does SQLModel handle optional fields differently from required fields in database tables?' can be found in `sqlmodel/main.py`. Key implementation details involve `Optional`, `Field`, `nullable`. This is a medium explanation question answerable from a single file.","[""sqlmodel/main.py""]",1,1,1.0,1.0,1831.4,28497,734,0.039291,0.624,334,

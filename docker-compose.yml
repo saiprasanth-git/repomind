@@ -1,0 +1,67 @@
+"""
+docker-compose.yml — local development environment.
+
+Run with:  docker compose up
+Stop with: docker compose down
+
+This spins up:
+  - postgres: PostgreSQL 16 with pgvector extension
+  - backend:  FastAPI app (auto-reloads on code changes)
+
+The frontend runs separately with: cd frontend && npm run dev
+"""
+
+version: "3.9"
+
+services:
+  # ── PostgreSQL + pgvector ──────────────────────────────────────────────────
+  postgres:
+    image: pgvector/pgvector:pg16
+    # pgvector/pgvector is an official image with the pgvector extension pre-installed.
+    # Regular postgres:16 would require manually installing the extension.
+    container_name: repomind_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: repomind
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Persist data between docker compose down/up cycles
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d repomind"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ── Backend ───────────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: builder  # Use builder stage in dev (has all dev tools)
+    container_name: repomind_backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    # --reload: auto-restarts when you change Python files
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app  # Mount source code for hot reload
+      - /tmp/repomind_repos:/tmp/repomind_repos  # Shared clone directory
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/repomind
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@postgres:5432/repomind
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      DEBUG: "true"
+      ENVIRONMENT: development
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local

@@ -1,0 +1,517 @@
+{
+  "_meta": {
+    "description": "50 evaluation questions across 5 real open-source repositories",
+    "question_types": ["navigation", "explanation", "architecture", "debug", "patch"],
+    "repos": [
+      "fastapi/fastapi",
+      "langchain-ai/langchain",
+      "tiangolo/sqlmodel",
+      "encode/httpx",
+      "pydantic/pydantic"
+    ],
+    "created": "2026-04-07",
+    "version": "1.0"
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "repo": "fastapi/fastapi",
+      "question": "Where is the main FastAPI application class defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["fastapi/applications.py"],
+      "ground_truth_keywords": ["class FastAPI", "Starlette"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q002",
+      "repo": "fastapi/fastapi",
+      "question": "How does FastAPI handle request validation using Pydantic?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/routing.py", "fastapi/dependencies/utils.py"],
+      "ground_truth_keywords": ["pydantic", "validate", "request_body"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q003",
+      "repo": "fastapi/fastapi",
+      "question": "Explain the overall architecture of FastAPI — how does a request flow from entry to response?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["fastapi/applications.py", "fastapi/routing.py", "fastapi/middleware"],
+      "ground_truth_keywords": ["router", "middleware", "response", "ASGI"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q004",
+      "repo": "fastapi/fastapi",
+      "question": "How does FastAPI generate OpenAPI documentation automatically?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/openapi/utils.py", "fastapi/applications.py"],
+      "ground_truth_keywords": ["openapi", "schema", "docs"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q005",
+      "repo": "fastapi/fastapi",
+      "question": "Where are HTTP exceptions and error handlers defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["fastapi/exception_handlers.py", "fastapi/exceptions.py"],
+      "ground_truth_keywords": ["HTTPException", "exception_handler"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q006",
+      "repo": "fastapi/fastapi",
+      "question": "How does dependency injection work in FastAPI — trace through a Depends() call",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["fastapi/dependencies/utils.py", "fastapi/routing.py", "fastapi/params.py"],
+      "ground_truth_keywords": ["Depends", "solve_dependencies", "dependency_cache"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q007",
+      "repo": "fastapi/fastapi",
+      "question": "What happens when you define a path operation with response_model?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/routing.py"],
+      "ground_truth_keywords": ["response_model", "serialize_response"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q008",
+      "repo": "fastapi/fastapi",
+      "question": "How does FastAPI handle background tasks?",
+      "type": "explanation",
+      "difficulty": "easy",
+      "ground_truth_files": ["fastapi/background.py"],
+      "ground_truth_keywords": ["BackgroundTasks", "add_task"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q009",
+      "repo": "fastapi/fastapi",
+      "question": "Where is middleware processing implemented and how does it chain?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/middleware", "fastapi/applications.py"],
+      "ground_truth_keywords": ["add_middleware", "Middleware"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q010",
+      "repo": "fastapi/fastapi",
+      "question": "How does WebSocket support work in FastAPI?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/routing.py", "fastapi/websockets.py"],
+      "ground_truth_keywords": ["WebSocket", "websocket_route"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q011",
+      "repo": "langchain-ai/langchain",
+      "question": "Where is the base LLM class defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["libs/langchain/langchain/llms/base.py"],
+      "ground_truth_keywords": ["class BaseLLM", "BaseLanguageModel"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q012",
+      "repo": "langchain-ai/langchain",
+      "question": "How does a LangChain chain execute — trace through the invoke() call",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["libs/core/langchain_core/runnables/base.py"],
+      "ground_truth_keywords": ["invoke", "Runnable", "RunnableSequence"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q013",
+      "repo": "langchain-ai/langchain",
+      "question": "Explain the overall architecture of the LangChain Expression Language (LCEL)",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["libs/core/langchain_core/runnables"],
+      "ground_truth_keywords": ["Runnable", "pipe", "chain", "stream"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q014",
+      "repo": "langchain-ai/langchain",
+      "question": "How does RAG work in LangChain — what classes are involved?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["libs/langchain/langchain/chains/retrieval_qa"],
+      "ground_truth_keywords": ["RetrievalQA", "retriever", "vector_store"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q015",
+      "repo": "langchain-ai/langchain",
+      "question": "Where is the ChatPromptTemplate class defined and how does it format messages?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["libs/core/langchain_core/prompts/chat.py"],
+      "ground_truth_keywords": ["ChatPromptTemplate", "format_messages"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q016",
+      "repo": "langchain-ai/langchain",
+      "question": "How does streaming work in LangChain chains?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["libs/core/langchain_core/runnables/base.py"],
+      "ground_truth_keywords": ["stream", "astream", "StreamEvent"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q017",
+      "repo": "langchain-ai/langchain",
+      "question": "How does memory work in LangChain agents?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["libs/langchain/langchain/memory"],
+      "ground_truth_keywords": ["ConversationBufferMemory", "chat_memory"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q018",
+      "repo": "langchain-ai/langchain",
+      "question": "What is the data flow from user message to LLM response in a ConversationalRetrievalChain?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["libs/langchain/langchain/chains/conversational_retrieval"],
+      "ground_truth_keywords": ["ConversationalRetrievalChain", "retriever", "combine_docs"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q019",
+      "repo": "langchain-ai/langchain",
+      "question": "Find where tool calling is implemented for LLM agents",
+      "type": "navigation",
+      "difficulty": "medium",
+      "ground_truth_files": ["libs/langchain/langchain/agents/tool_calling_agent"],
+      "ground_truth_keywords": ["tool_calling", "bind_tools"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q020",
+      "repo": "langchain-ai/langchain",
+      "question": "How does document loading and text splitting work together?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["libs/langchain/langchain/document_loaders", "libs/text-splitters"],
+      "ground_truth_keywords": ["DocumentLoader", "TextSplitter", "split_documents"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q021",
+      "repo": "tiangolo/sqlmodel",
+      "question": "Where is the main SQLModel class defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["sqlmodel/main.py"],
+      "ground_truth_keywords": ["class SQLModel", "SQLModelMetaclass"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q022",
+      "repo": "tiangolo/sqlmodel",
+      "question": "How does SQLModel combine Pydantic models with SQLAlchemy tables?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["sqlmodel/main.py"],
+      "ground_truth_keywords": ["SQLModelMetaclass", "pydantic", "sqlalchemy", "table"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q023",
+      "repo": "tiangolo/sqlmodel",
+      "question": "Explain the overall design of SQLModel — what problems does it solve and how?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["sqlmodel/main.py", "sqlmodel/session.py"],
+      "ground_truth_keywords": ["SQLModel", "session", "pydantic", "table"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q024",
+      "repo": "tiangolo/sqlmodel",
+      "question": "How does the Session class work in SQLModel?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["sqlmodel/session.py"],
+      "ground_truth_keywords": ["Session", "exec", "select"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q025",
+      "repo": "tiangolo/sqlmodel",
+      "question": "Where is relationship handling defined for SQLModel models?",
+      "type": "navigation",
+      "difficulty": "medium",
+      "ground_truth_files": ["sqlmodel/main.py"],
+      "ground_truth_keywords": ["Relationship", "RelationshipInfo"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q026",
+      "repo": "encode/httpx",
+      "question": "Where is the main httpx Client class defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["httpx/_client.py"],
+      "ground_truth_keywords": ["class Client", "class AsyncClient"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q027",
+      "repo": "encode/httpx",
+      "question": "How does httpx handle connection pooling?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["httpx/_transports/default.py", "httpx/_config.py"],
+      "ground_truth_keywords": ["connection_pool", "limits", "HTTPTransport"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q028",
+      "repo": "encode/httpx",
+      "question": "Explain the complete request-response lifecycle in httpx",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["httpx/_client.py", "httpx/_transports", "httpx/_models.py"],
+      "ground_truth_keywords": ["send", "transport", "request", "response"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q029",
+      "repo": "encode/httpx",
+      "question": "How does retry logic work in httpx?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["httpx/_transports/default.py"],
+      "ground_truth_keywords": ["retry", "transport", "Retries"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q030",
+      "repo": "encode/httpx",
+      "question": "Where is authentication handling implemented?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["httpx/_auth.py"],
+      "ground_truth_keywords": ["Auth", "BasicAuth", "BearerAuth"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q031",
+      "repo": "encode/httpx",
+      "question": "How does streaming response handling differ between sync and async clients?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["httpx/_client.py", "httpx/_models.py"],
+      "ground_truth_keywords": ["stream", "aiter_bytes", "iter_bytes"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q032",
+      "repo": "encode/httpx",
+      "question": "How does httpx handle redirects?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["httpx/_client.py"],
+      "ground_truth_keywords": ["follow_redirects", "redirect", "history"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q033",
+      "repo": "encode/httpx",
+      "question": "What is the data flow when making an async HTTP request?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["httpx/_client.py", "httpx/_transports/asgi.py"],
+      "ground_truth_keywords": ["AsyncClient", "send", "aclose"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q034",
+      "repo": "encode/httpx",
+      "question": "Where is cookie handling implemented?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["httpx/_models.py", "httpx/_cookies.py"],
+      "ground_truth_keywords": ["Cookies", "set_cookie", "jar"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q035",
+      "repo": "encode/httpx",
+      "question": "How does timeout handling work across different request phases?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["httpx/_config.py", "httpx/_client.py"],
+      "ground_truth_keywords": ["Timeout", "connect_timeout", "read_timeout"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q036",
+      "repo": "pydantic/pydantic",
+      "question": "Where is the main BaseModel class defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["pydantic/main.py"],
+      "ground_truth_keywords": ["class BaseModel", "ModelMetaclass"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q037",
+      "repo": "pydantic/pydantic",
+      "question": "How does Pydantic V2 validate data differently from V1?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/main.py", "pydantic/_internal"],
+      "ground_truth_keywords": ["model_validate", "core_schema", "rust"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q038",
+      "repo": "pydantic/pydantic",
+      "question": "Explain the complete validation pipeline for a Pydantic model",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/main.py", "pydantic/_internal/_model_construction.py"],
+      "ground_truth_keywords": ["__get_validators__", "model_validator", "field_validator"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q039",
+      "repo": "pydantic/pydantic",
+      "question": "How does Field() work to add constraints and metadata to model fields?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["pydantic/fields.py"],
+      "ground_truth_keywords": ["Field", "FieldInfo", "metadata"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q040",
+      "repo": "pydantic/pydantic",
+      "question": "Where is JSON serialization implemented for Pydantic models?",
+      "type": "navigation",
+      "difficulty": "medium",
+      "ground_truth_files": ["pydantic/main.py"],
+      "ground_truth_keywords": ["model_dump", "model_dump_json", "json"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q041",
+      "repo": "pydantic/pydantic",
+      "question": "How does validator inheritance work when subclassing a Pydantic model?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/main.py", "pydantic/_internal/_model_construction.py"],
+      "ground_truth_keywords": ["validator", "inherit", "__validators__"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q042",
+      "repo": "pydantic/pydantic",
+      "question": "How does Pydantic handle discriminated unions?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/discriminated_types.py", "pydantic/_internal"],
+      "ground_truth_keywords": ["discriminated_union", "discriminator", "Annotated"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q043",
+      "repo": "pydantic/pydantic",
+      "question": "What is the data flow when calling model_validate() on a raw dict?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/main.py", "pydantic/_internal/_validate_call.py"],
+      "ground_truth_keywords": ["model_validate", "__pydantic_validator__", "core_schema"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q044",
+      "repo": "pydantic/pydantic",
+      "question": "Where is the settings management (pydantic-settings) BaseSettings defined?",
+      "type": "navigation",
+      "difficulty": "easy",
+      "ground_truth_files": ["pydantic_settings/main.py"],
+      "ground_truth_keywords": ["class BaseSettings", "env_settings"],
+      "cross_file_required": false
+    },
+    {
+      "id": "Q045",
+      "repo": "pydantic/pydantic",
+      "question": "How does Pydantic's recursive model validation work for nested models?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/main.py", "pydantic/_internal"],
+      "ground_truth_keywords": ["nested", "recursive", "model_fields"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q046",
+      "repo": "fastapi/fastapi",
+      "question": "How does FastAPI handle form data and file uploads?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["fastapi/params.py", "fastapi/datastructures.py"],
+      "ground_truth_keywords": ["Form", "File", "UploadFile"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q047",
+      "repo": "encode/httpx",
+      "question": "How does httpx support HTTP/2?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["httpx/_transports/default.py"],
+      "ground_truth_keywords": ["http2", "h2", "HTTP2Transport"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q048",
+      "repo": "langchain-ai/langchain",
+      "question": "How are callbacks and tracing implemented across LangChain operations?",
+      "type": "architecture",
+      "difficulty": "hard",
+      "ground_truth_files": ["libs/core/langchain_core/callbacks"],
+      "ground_truth_keywords": ["CallbackManager", "BaseCallbackHandler", "on_llm_start"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q049",
+      "repo": "pydantic/pydantic",
+      "question": "How does Pydantic's custom type system work with Annotated types?",
+      "type": "explanation",
+      "difficulty": "hard",
+      "ground_truth_files": ["pydantic/functional_validators.py"],
+      "ground_truth_keywords": ["Annotated", "GetCoreSchemaHandler", "BeforeValidator"],
+      "cross_file_required": true
+    },
+    {
+      "id": "Q050",
+      "repo": "tiangolo/sqlmodel",
+      "question": "How does SQLModel handle optional fields differently from required fields in database tables?",
+      "type": "explanation",
+      "difficulty": "medium",
+      "ground_truth_files": ["sqlmodel/main.py"],
+      "ground_truth_keywords": ["Optional", "Field", "nullable", "sa_column"],
+      "cross_file_required": false
+    }
+  ]
+}

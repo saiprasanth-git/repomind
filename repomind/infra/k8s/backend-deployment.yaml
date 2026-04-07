@@ -1,0 +1,122 @@
+# Kubernetes deployment for the RepoMind backend
+# Deploy to EKS or GKE: kubectl apply -f infra/k8s/
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repomind-backend
+  namespace: repomind
+  labels:
+    app: repomind-backend
+    version: "1.0.0"
+spec:
+  replicas: 2                     # 2 replicas for high availability
+  selector:
+    matchLabels:
+      app: repomind-backend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1                 # spin up 1 extra pod before killing old ones
+      maxUnavailable: 0           # never take a pod down before replacement is ready
+  template:
+    metadata:
+      labels:
+        app: repomind-backend
+    spec:
+      containers:
+        - name: backend
+          image: gcr.io/YOUR_PROJECT/repomind-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ENVIRONMENT
+              value: "production"
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: repomind-secrets
+                  key: google-api-key
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: repomind-secrets
+                  key: openai-api-key
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: repomind-secrets
+                  key: database-url
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "2Gi"
+              cpu: "1000m"
+          # Liveness: restart pod if app hangs
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 3
+          # Readiness: don't send traffic until the app is ready
+          readinessProbe:
+            httpGet:
+              path: /health/db
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+          volumeMounts:
+            - name: tmp-repos
+              mountPath: /tmp/repomind_repos
+      volumes:
+        - name: tmp-repos
+          emptyDir:
+            sizeLimit: 5Gi        # repos are deleted after indexing, cap storage
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repomind-backend
+  namespace: repomind
+spec:
+  selector:
+    app: repomind-backend
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
+  type: ClusterIP                 # internal only — traffic comes through ingress
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: repomind-backend-hpa
+  namespace: repomind
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: repomind-backend
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70   # scale up when CPU > 70%
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80

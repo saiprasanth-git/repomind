@@ -1,0 +1,113 @@
+name: Deploy — GCP Cloud Run
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:   # allows manual trigger from GitHub UI
+
+env:
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GCP_REGION: us-central1
+  BACKEND_IMAGE: gcr.io/${{ secrets.GCP_PROJECT_ID }}/repomind-backend
+  BACKEND_SERVICE: repomind-backend
+  FRONTEND_BUCKET: gs://repomind-frontend
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    # Only deploy from main after CI passes
+    needs: []
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── Authenticate with GCP ──────────────────────────────────────────────
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      # ── Build & Push Backend Docker Image ─────────────────────────────────
+      - name: Configure Docker to use GCR
+        run: gcloud auth configure-docker --quiet
+
+      - name: Build backend Docker image
+        run: |
+          docker build \
+            --tag ${{ env.BACKEND_IMAGE }}:${{ github.sha }} \
+            --tag ${{ env.BACKEND_IMAGE }}:latest \
+            --file backend/Dockerfile \
+            --target runtime \
+            backend/
+
+      - name: Push backend image to GCR
+        run: |
+          docker push ${{ env.BACKEND_IMAGE }}:${{ github.sha }}
+          docker push ${{ env.BACKEND_IMAGE }}:latest
+
+      # ── Deploy Backend to Cloud Run ────────────────────────────────────────
+      - name: Deploy backend to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.BACKEND_SERVICE }} \
+            --image ${{ env.BACKEND_IMAGE }}:${{ github.sha }} \
+            --region ${{ env.GCP_REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --min-instances 0 \
+            --max-instances 5 \
+            --memory 2Gi \
+            --cpu 1 \
+            --timeout 300 \
+            --set-env-vars="ENVIRONMENT=production" \
+            --set-secrets="GOOGLE_API_KEY=repomind-google-api-key:latest,DATABASE_URL=repomind-db-url:latest,OPENAI_API_KEY=repomind-openai-key:latest" \
+            --quiet
+
+      # ── Get Backend URL for Frontend Config ───────────────────────────────
+      - name: Get backend service URL
+        id: backend-url
+        run: |
+          URL=$(gcloud run services describe ${{ env.BACKEND_SERVICE }} \
+            --region ${{ env.GCP_REGION }} \
+            --format 'value(status.url)')
+          echo "url=$URL" >> $GITHUB_OUTPUT
+          echo "Backend URL: $URL"
+
+      # ── Build Frontend ─────────────────────────────────────────────────────
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Build frontend
+        env:
+          VITE_API_URL: ${{ steps.backend-url.outputs.url }}/api/v1
+        run: |
+          cd frontend
+          npm ci
+          npm run build
+
+      # ── Deploy Frontend to GCS + Cloud CDN ────────────────────────────────
+      - name: Deploy frontend to GCS
+        run: |
+          gsutil -m rsync -r -d frontend/dist/public/ ${{ env.FRONTEND_BUCKET }}/
+          gsutil -m setmeta \
+            -h "Cache-Control:public, max-age=3600" \
+            "${{ env.FRONTEND_BUCKET }}/**/*.html"
+          gsutil -m setmeta \
+            -h "Cache-Control:public, max-age=86400" \
+            "${{ env.FRONTEND_BUCKET }}/assets/**"
+
+      # ── Summary ───────────────────────────────────────────────────────────
+      - name: Deployment summary
+        run: |
+          echo "✅ Deployment complete"
+          echo "Backend: ${{ steps.backend-url.outputs.url }}"
+          echo "Frontend: https://repomind.app"
+          echo "SHA: ${{ github.sha }}"
