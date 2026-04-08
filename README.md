@@ -9,6 +9,13 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791)](https://postgresql.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
+## Live Demo
+
+**API (Cloud Run):** https://repomind-backend-340292594504.us-central1.run.app/docs
+
+**Pre-indexed repo:** `fastapi/fastapi` — 2526 files, 12514 chunks
+
+
 ---
 
 ## What Is This?
