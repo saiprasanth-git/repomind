@@ -45,7 +45,7 @@ RUN useradd -m -u 1000 repomind && chown -R repomind:repomind /app /tmp/repomind
 USER repomind
 
 # Expose the port
-EXPOSE 8000
+EXPOSE 8080
 
 # Health check — Kubernetes uses this to know when the pod is ready
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
@@ -54,4 +54,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
 # Start the server
 # --workers 1: single worker (we use async, not threads)
 # --host 0.0.0.0: listen on all interfaces (required in containers)
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080} --workers 1
