@@ -173,7 +173,7 @@ Full methodology and results: [EXPERIMENT.md](docs/technical/EXPERIMENT.md)
 
 ## Built In
 
-- **48 hours** — solo build sprint
+
 - **Stack:** Python, FastAPI, React, TypeScript, PostgreSQL, pgvector, LangChain, Gemini 1.5 Pro, Docker, GCP Cloud Run
 
 ---
