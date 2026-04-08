@@ -79,14 +79,12 @@ async def run_ingestion_pipeline(repo_id: UUID, github_url: str) -> None:
         owner, repo_name = parse_github_url(github_url)
 
         # Fetch GitHub metadata in parallel with clone start
-        metadata_task = asyncio.create_task(
-            asyncio.get_event_loop().run_in_executor(
-                None, get_repo_metadata, owner, repo_name
-            )
+        metadata = await asyncio.get_event_loop().run_in_executor(
+            None, get_repo_metadata, owner, repo_name
         )
 
         clone_path = await clone_repository(github_url, str(repo_id))
-        metadata = await metadata_task
+        
 
         # Update repo record with metadata
         await _update_repo_status(
